@@ -38,6 +38,22 @@ class Guide(models.Model):
         super().save(*args, **kwargs)
 
 
+class Link(models.Model):
+    """A link associated with an item"""
+
+    url = models.URLField(max_length=500)
+    label = models.CharField(max_length=200, blank=True)
+
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'links'
+
+    def __str__(self):
+        return self.label or self.url
+
+
 class Item(models.Model):
     """An item within a guide"""
 
@@ -50,8 +66,8 @@ class Item(models.Model):
     note = models.TextField(blank=True, help_text="Why you love this")
     image = models.ImageField(upload_to='item_images/', blank=True, null=True)
 
-    # Links (simple JSON field for now, can be normalized later)
-    links = models.JSONField(default=list, blank=True)
+    # Links
+    links = models.ManyToManyField(Link, blank=True, related_name='items')
 
     # Ordering
     position = models.PositiveIntegerField(default=0)
