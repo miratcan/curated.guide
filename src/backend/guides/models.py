@@ -2,8 +2,10 @@ from django.conf import settings
 from django.db import models
 from django.utils.text import slugify
 
+from core.models import TimeStampedModel
 
-class Guide(models.Model):
+
+class Guide(TimeStampedModel):
     """A curated guide created by a user"""
 
     owner = models.ForeignKey(
@@ -37,22 +39,6 @@ class Guide(models.Model):
         max_length=128,
         blank=True,
         help_text="Password for password-protected guides",
-    )
-
-    # Timestamps
-    created_at = models.DateTimeField(
-        auto_now_add=True, help_text="When this guide was created"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, help_text="When this guide was last updated"
-    )
-
-    # Soft delete
-    is_deleted = models.BooleanField(
-        default=False, help_text="Whether this guide is soft-deleted"
-    )
-    deleted_at = models.DateTimeField(
-        null=True, blank=True, help_text="When this guide was deleted"
     )
 
     class Meta:

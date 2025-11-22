@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Third-party apps
     "axes",
     # Local apps
+    "core",
     "accounts",
     "guides",
 ]
