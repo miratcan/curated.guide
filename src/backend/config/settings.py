@@ -147,5 +147,18 @@ AXES_LOCKOUT_PARAMETERS = [
     ["username", "ip_address"]
 ]  # Lock by combination of user and IP
 
+# Registration & Access Control
+class RegistrationMode:
+    INVITE_ONLY = "invite_only"  # Month 0-3: Only invites
+    PAID_BYPASS = "paid_bypass"  # Month 3+: Invite OR payment
+    OPEN = "open"  # Future: Open to all
+
+
+REGISTRATION_MODE = RegistrationMode.INVITE_ONLY  # Start invite-only
+
+# Subscription
+SUBSCRIPTION_TRIAL_DAYS = 14  # Stripe trial period
+SUBSCRIPTION_PRICE_MONTHLY = 5  # USD per month
+
 # Invitation system
 INVITATIONS_PER_USER = 3  # Number of invites each user gets

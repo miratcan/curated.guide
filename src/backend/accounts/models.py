@@ -4,8 +4,31 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+class SubscriptionStatus(models.TextChoices):
+    """Subscription status choices"""
+
+    TRIAL = "trial", "Trial"
+    ACTIVE = "active", "Active"
+    EXPIRED = "expired", "Expired"
+    CANCELED = "canceled", "Canceled"
+
+
 class User(AbstractUser):
     """Custom user model for curated.guide"""
+
+    # Stripe subscription
+    stripe_customer_id = models.CharField(
+        max_length=100, blank=True, help_text="Stripe customer ID"
+    )
+    subscription_status = models.CharField(
+        max_length=20,
+        choices=SubscriptionStatus.choices,
+        default=SubscriptionStatus.TRIAL,
+        help_text="Current subscription status",
+    )
+    trial_ends_at = models.DateTimeField(
+        null=True, blank=True, help_text="When trial period ends"
+    )
 
     class Meta:
         db_table = "users"
@@ -21,6 +44,13 @@ class User(AbstractUser):
         return self.sent_invitations.filter(status="pending").count()
 
 
+class InvitationType(models.TextChoices):
+    """Invitation type choices"""
+
+    NORMAL = "normal", "Normal"  # Regular user invite
+    FOUNDERS_PASS = "founders_pass", "Founder's Pass"  # Lifetime free
+
+
 class Invitation(models.Model):
     """Invitation code for invite-only access"""
 
@@ -34,6 +64,17 @@ class Invitation(models.Model):
         max_length=32,
         unique=True,
         help_text="Unique invitation code",
+    )
+    invitation_type = models.CharField(
+        max_length=20,
+        choices=InvitationType.choices,
+        default=InvitationType.NORMAL,
+        help_text="Type of invitation",
+    )
+    stripe_coupon_id = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="Stripe coupon ID (for Founder's Pass)",
     )
     sender = models.ForeignKey(
         User,
