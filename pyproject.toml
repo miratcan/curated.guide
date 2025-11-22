@@ -7,4 +7,5 @@ dependencies = [
     "django>=5.2.8",
     "django-allauth>=65.13.1",
     "django-htmx>=1.26.0",
+    "pillow>=12.0.0",
 ]
