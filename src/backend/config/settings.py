@@ -145,3 +145,6 @@ AXES_COOLOFF_TIME = 1  # Lock for 1 hour
 AXES_LOCKOUT_PARAMETERS = [
     ["username", "ip_address"]
 ]  # Lock by combination of user and IP
+
+# Invitation system
+INVITATIONS_PER_USER = 3  # Number of invites each user gets

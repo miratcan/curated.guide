@@ -8,10 +8,12 @@ from .models import Invitation, User
 class UserAdmin(BaseUserAdmin):
     """Admin for custom User model"""
 
-    list_display = BaseUserAdmin.list_display + ("invites_available",)
-    fieldsets = BaseUserAdmin.fieldsets + (
-        ("Invite System", {"fields": ("invites_available",)}),
-    )
+    list_display = BaseUserAdmin.list_display + ("get_invites_available",)
+
+    def get_invites_available(self, obj):
+        return obj.invites_available
+
+    get_invites_available.short_description = "Invites Available"
 
 
 @admin.register(Invitation)

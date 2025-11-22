@@ -7,11 +7,6 @@ from django.db import models
 class User(AbstractUser):
     """Custom user model for curated.guide"""
 
-    # Invite system
-    invites_available = models.PositiveIntegerField(
-        default=3, help_text="Number of invites available"
-    )
-
     class Meta:
         db_table = "users"
         verbose_name = "User"
@@ -19,6 +14,11 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+    @property
+    def invites_available(self):
+        """Number of pending invitations available"""
+        return self.sent_invitations.filter(status="pending").count()
 
 
 class Invitation(models.Model):
