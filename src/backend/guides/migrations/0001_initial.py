@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -15,41 +14,86 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Guide',
+            name="Guide",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('slug', models.SlugField(max_length=200)),
-                ('description', models.TextField(blank=True)),
-                ('cover_image', models.ImageField(blank=True, null=True, upload_to='guide_covers/')),
-                ('is_public', models.BooleanField(default=True)),
-                ('password', models.CharField(blank=True, max_length=128)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='guides', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("slug", models.SlugField(max_length=200)),
+                ("description", models.TextField(blank=True)),
+                (
+                    "cover_image",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="guide_covers/"
+                    ),
+                ),
+                ("is_public", models.BooleanField(default=True)),
+                ("password", models.CharField(blank=True, max_length=128)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "owner",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="guides",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'db_table': 'guides',
-                'ordering': ['-created_at'],
-                'unique_together': {('owner', 'slug')},
+                "db_table": "guides",
+                "ordering": ["-created_at"],
+                "unique_together": {("owner", "slug")},
             },
         ),
         migrations.CreateModel(
-            name='Item',
+            name="Item",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=300)),
-                ('note', models.TextField(blank=True, help_text='Why you love this')),
-                ('image', models.ImageField(blank=True, null=True, upload_to='item_images/')),
-                ('links', models.JSONField(blank=True, default=list)),
-                ('position', models.PositiveIntegerField(default=0)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('guide', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='items', to='guides.guide')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=300)),
+                (
+                    "note",
+                    models.TextField(
+                        blank=True, help_text="Why you love this"
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="item_images/"
+                    ),
+                ),
+                ("links", models.JSONField(blank=True, default=list)),
+                ("position", models.PositiveIntegerField(default=0)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "guide",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="items",
+                        to="guides.guide",
+                    ),
+                ),
             ],
             options={
-                'db_table': 'items',
-                'ordering': ['position', 'created_at'],
+                "db_table": "items",
+                "ordering": ["position", "created_at"],
             },
         ),
     ]

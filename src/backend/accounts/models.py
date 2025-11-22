@@ -9,9 +9,9 @@ class User(AbstractUser):
     # e.g., bio, avatar, custom_domain, etc.
 
     class Meta:
-        db_table = 'users'
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
+        db_table = "users"
+        verbose_name = "User"
+        verbose_name_plural = "Users"
 
     def __str__(self):
         return self.username

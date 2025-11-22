@@ -7,4 +7,5 @@ from .models import User
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
     """Admin for custom User model"""
+
     pass

@@ -4,31 +4,40 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('guides', '0001_initial'),
+        ("guides", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Link',
+            name="Link",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('url', models.URLField(max_length=500)),
-                ('label', models.CharField(blank=True, max_length=200)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("url", models.URLField(max_length=500)),
+                ("label", models.CharField(blank=True, max_length=200)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'db_table': 'links',
+                "db_table": "links",
             },
         ),
         migrations.RemoveField(
-            model_name='item',
-            name='links',
+            model_name="item",
+            name="links",
         ),
         migrations.AddField(
-            model_name='item',
-            name='links',
-            field=models.ManyToManyField(blank=True, related_name='items', to='guides.link'),
+            model_name="item",
+            name="links",
+            field=models.ManyToManyField(
+                blank=True, related_name="items", to="guides.link"
+            ),
         ),
     ]
