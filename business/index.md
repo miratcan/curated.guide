@@ -45,6 +45,7 @@ Don't create docs for one-time notes. Use comments or inline.
 
 ## Document Index (Single Source)
 
+- **index.md** → This file (documentation meta-rules)
 - **zen.md** → Philosophy, core principles, decision framework
 - **features.md** → Product vision, pricing, what we build/don't build
 - **personas.md** → Target users, pain points, value prop
@@ -53,7 +54,6 @@ Don't create docs for one-time notes. Use comments or inline.
 - **techstack.md** → Technologies, architecture, forbidden tools
 - **seo.md** → SEO strategy, content approach
 - **analytics.md** → Metrics, events, measurement
-- **documentation.md** → This file (meta-rules)
 
 If you're adding info and don't know where → check this index first.
 

@@ -8,12 +8,14 @@ No feed. No noise. Just you and your recommendations, perfectly presented.
 
 ---
 
-## Pricing & Access (Simple, Honest, Sustainable)
+## Pricing & Access (Invite-Only Launch)
 
 - **One plan:** $5/month or $48/year (20% discount)
-- **14-day free trial** (no credit card required)
-- **No free tier** – because free tiers die.
-- **Founder’s Pass** (lifetime free) – only 200 available, given manually by me (@miratcan) to people who truly need it or help spread the word early.
+- **Invite-only access:**
+  - Join via invite OR pay $5/month to skip waitlist
+  - Every user gets 3 invites (one-time, non-recurring)
+  - Creates FOMO + organic growth + quality control
+- **Founder's Pass** (lifetime free) – 500 strategic invites by @miratcan for seed content (influencers, local experts, knowledge sharers)
 - **Everyone is equal** – no badges, no stars, no "Pro" labels, no visible hierarchy. You pay so this place exists in 10 years.
 
 ---
@@ -77,21 +79,22 @@ No popups, no email harvesting, no growth hacks.
 
 ---
 
-## Success Metrics (Next 24 Months)
+## Success Metrics (Next 12 Months)
 
-0–3 months  
-- 500 paying users  
-- 2,000+ public guides  
-- First $2.5k MRR
+0–3 months (Invite-only hype phase)
+- 100 Founder's Pass users seeding content
+- 500+ waitlist signups
+- First 50 paying users ($250 MRR)
 
-3–12 months  
-- $10k+ MRR  
-- 50k+ monthly organic visits  
-- Become the default when someone says "I made a guide for this"
+3–6 months (Paid bypass opens)
+- 300 paying users ($1.5k MRR)
+- 1,000+ public guides
+- Invite momentum + word of mouth
 
-12–24 months  
-- $30k+ MRR with <6k users (high ARPU, low churn)  
-- The place where people publish their taste.
+6–12 months (Sustainable growth)
+- **600 paying users = $3k MRR (target)**
+- 3,000+ public guides
+- Organic SEO traction begins
 
 ---
 
