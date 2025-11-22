@@ -47,6 +47,14 @@ class Guide(models.Model):
         auto_now=True, help_text="When this guide was last updated"
     )
 
+    # Soft delete
+    is_deleted = models.BooleanField(
+        default=False, help_text="Whether this guide is soft-deleted"
+    )
+    deleted_at = models.DateTimeField(
+        null=True, blank=True, help_text="When this guide was deleted"
+    )
+
     class Meta:
         db_table = "guides"
         ordering = ["-created_at"]
